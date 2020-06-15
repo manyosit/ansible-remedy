@@ -3,5 +3,6 @@
 remedy_home: "/opt/remedy"
 scripts_dir: "{{ remedy_home }}/bin"
 smartit_bin: "{{ scripts_dir }}/smartit"
+smartit_port: 7443
 firewall_script_disable: "{{ scripts_dir }}/disable_smartit"
 firewall_script_enable: "{{ scripts_dir }}/enable_smartit"
