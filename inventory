@@ -1,0 +1,28 @@
+[swarm]
+
+pier1 ansible_host=10.8.0.31
+pier2 ansible_host=10.8.0.32
+pier3 ansible_host=10.8.0.33
+pier5 ansible_host=10.8.0.35
+pier6 ansible_host=10.8.0.36
+pier7 ansible_host=10.8.0.37
+
+[kube]
+master1 ansible_host=10.8.0.65
+node1 ansible_host=10.8.0.66
+
+[proxmox]
+10.8.0.31
+
+# Group of all server
+[all:children]
+swarm
+kube
+
+# All virtual servers
+[virtual:children]
+kube
+
+# Variables for all server
+[all:vars]
+ansible_ssh_user=manyos

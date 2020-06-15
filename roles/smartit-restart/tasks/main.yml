@@ -1,0 +1,17 @@
+---
+- name: block in firewall
+  shell: env
+
+- name: stop smartit
+  shell: "{{ smartit_bin }} stop"
+
+- name: start smartit
+  shell: "{{ smartit_bin }} start"
+
+- name: wait for smartit to come up
+  wait_for:
+    port: 7443
+    delay: 30
+
+- name: allow in firewall
+  shell: env
